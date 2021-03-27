@@ -24,8 +24,8 @@ python -m pip install -r Requirements.txt
 
 
 ## `--Use--`
-* If you want to run the script in background run ***run_in_background.py***
-* To autorun the script on startup copy a shortcut of ***run_in_background.pyq*** file
+* If you want to run the script in background run ***run_in_background.pyw***
+* To autorun the script on startup copy a shortcut of ***run_in_background.pyw*** file
 to your **startup** folder.
 
 ## `--Depends On--`
