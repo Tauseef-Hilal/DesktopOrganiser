@@ -5,19 +5,19 @@
     moving the files to a folder
 """
 
-import os
 import time
 
 from events import event_handler, observer
 import extensions
 
-observer.schedule(event_handler, extensions.target, recursive=True)
-observer.start()
+if __name__ == '__main__':
+    observer.schedule(event_handler, extensions.target, recursive=True)
+    observer.start()
 
-try:
-    while True:
-        time.sleep(10)
-except KeyboardInterrupt:
-    observer.stop()
+    try:
+        while True:
+            time.sleep(10)
+    except KeyboardInterrupt:
+        observer.stop()
 
-observer.join()
+    observer.join()

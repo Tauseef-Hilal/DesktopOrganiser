@@ -17,15 +17,13 @@ except ModuleNotFoundError:
             print(_file.read())
         print("==========================================")
         print("Please run install.py first")
-        time.sleep(2)
-        exit()
     except FileNotFoundError:
         print("[Error] Requirements.txt not found")
         print("Please run install.py first")
+    finally: 
         time.sleep(2)
         exit()
-    time.sleep(2)
-    exit()
+
 
 class My_Handler(FileSystemEventHandler):
 
@@ -37,9 +35,11 @@ class My_Handler(FileSystemEventHandler):
 
             if _file != "Target":
                 file_ext = os.path.splitext(path)[1]
+                others_dir = extensions.destinations['others']
 
                 if file_ext not in extensions.destinations.keys():
-                    file_ext = "others"
+                    new_dir =  file_ext[1:].title() + '-Files\\'
+                    extensions.destinations[file_ext] = others_dir + new_dir
 
                 folder_destination = extensions.destinations[file_ext]
                 folder_destination = folder_destination.format(os.getlogin())
@@ -48,7 +48,7 @@ class My_Handler(FileSystemEventHandler):
                     while os.path.isfile(folder_destination + _file):
                         i += 1
                         _file = os.path.splitext(path)[0] \
-                                + str(i) + \
+                                + '-' + str(i) + \
                                 os.path.splitext(path)[1]
                         _file = _file.split('\\')[4]
                     
@@ -70,11 +70,12 @@ class My_Handler(FileSystemEventHandler):
                     if not os.path.isfile(log_file):
                         with open(log_file, 'w') as log:
                             pass
+                    if not os.path.isdir(others_dir):
+                        os.mkdir(others_dir)
                     if not os.path.isdir(folder_destination):
                         os.mkdir(folder_destination)
                 except:
                     pass
-
 
 
 event_handler = My_Handler()
