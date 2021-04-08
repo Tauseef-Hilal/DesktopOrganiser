@@ -1,27 +1,27 @@
 import os
 import time
 
-# try:
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
-import extensions
-import log
-# except ModuleNotFoundError:
-#     print("[Error] The program has unmet dependencies:")
-#     print("Depends on:")
-#     print("==========================================")
+try:
+    from watchdog.observers import Observer
+    from watchdog.events import FileSystemEventHandler
+    import extensions
+    import log
+except ModuleNotFoundError:
+    print("[Error] The program has unmet dependencies:")
+    print("Depends on:")
+    print("==========================================")
 
-#     try:
-#         with open('Requirements.txt') as _file:
-#             print(_file.read())
-#         print("==========================================")
-#         print("Please run install.py first")
-#     except FileNotFoundError:
-#         print("[Error] Requirements.txt not found")
-#         print("Please run install.py first")
-#     finally: 
-#         time.sleep(2)
-#         exit()
+    try:
+        with open('Requirements.txt') as _file:
+            print(_file.read())
+        print("==========================================")
+        print("Please run install.py first")
+    except FileNotFoundError:
+        print("[Error] Requirements.txt not found")
+        print("Please run install.py first")
+    finally: 
+        time.sleep(2)
+        exit()
 
 
 class My_Handler(FileSystemEventHandler):
