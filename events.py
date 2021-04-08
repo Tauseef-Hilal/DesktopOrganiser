@@ -1,28 +1,27 @@
 import os
 import time
-from datetime import date
 
+# try:
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 import extensions
+import log
+# except ModuleNotFoundError:
+#     print("[Error] The program has unmet dependencies:")
+#     print("Depends on:")
+#     print("==========================================")
 
-try:
-    from watchdog.observers import Observer
-    from watchdog.events import FileSystemEventHandler
-except ModuleNotFoundError:
-    print("[Error] The program has unmet dependencies:")
-    print("Depends on:")
-    print("==========================================")
-
-    try:
-        with open('Requirements.txt') as _file:
-            print(_file.read())
-        print("==========================================")
-        print("Please run install.py first")
-    except FileNotFoundError:
-        print("[Error] Requirements.txt not found")
-        print("Please run install.py first")
-    finally: 
-        time.sleep(2)
-        exit()
+#     try:
+#         with open('Requirements.txt') as _file:
+#             print(_file.read())
+#         print("==========================================")
+#         print("Please run install.py first")
+#     except FileNotFoundError:
+#         print("[Error] Requirements.txt not found")
+#         print("Please run install.py first")
+#     finally: 
+#         time.sleep(2)
+#         exit()
 
 
 class My_Handler(FileSystemEventHandler):
@@ -53,23 +52,12 @@ class My_Handler(FileSystemEventHandler):
                         _file = _file.split('\\')[4]
                     
                     new_path = folder_destination + _file
-                    log_dir = extensions.destinations['log']
-                    log_file = log_dir + str(date.today()) + '.txt'
 
                     os.rename(path, new_path)
 
-                    with open(log_file, 'a') as log:
-                        log.write(path + ' --> ' + new_path + '\n')
+                    log.logger.info(path + ' --> ' + new_path + '\n')
 
                 except FileNotFoundError:
-                    main = extensions.destinations['main_folder']
-                    if not os.path.isdir(main):
-                        os.mkdir(main)
-                    if not os.path.isdir(log_dir):
-                        os.mkdir(log_dir)
-                    if not os.path.isfile(log_file):
-                        with open(log_file, 'w') as log:
-                            pass
                     if not os.path.isdir(others_dir):
                         os.mkdir(others_dir)
                     if not os.path.isdir(folder_destination):
