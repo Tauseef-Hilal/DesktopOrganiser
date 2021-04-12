@@ -1,19 +1,17 @@
-import os
-
-target = "C:\\Users\\{}\\Desktop\\".format(os.getlogin())
+from os.path import join
+from os import name
+from log import usr_dir, target
 
 destinations = {
-    'main_folder': "C:\\Users\\{}\\Desktop\\Target\\".format(os.getlogin()),
-    'log': "C:\\Users\\{}\\Desktop\\Target\\Log\\".format(os.getlogin()),
-    'others': "C:\\Users\\{}\\Desktop\\Target\\Others\\".format(os.getlogin()),
-    '.mp3': "C:\\Users\\{}\\Music\\",
-    '.mp4': "C:\\Users\\{}\\Videos\\",
-    '.jpg': "C:\\Users\\{}\\Pictures\\",
-    '.png': "C:\\Users\\{}\\Pictures\\",
-    '.txt': "C:\\Users\\{}\\Desktop\\Target\\Text-Files\\",
-    '.zip': "C:\\Users\\{}\\Desktop\\Target\\Compressed-Files\\",
-    '.rar': "C:\\Users\\{}\\Desktop\\Target\\Compressed-Files\\",
-    '.exe': "C:\\Users\\{}\\Desktop\\Target\\Executables\\",
-    '.msi': "C:\\Users\\{}\\Desktop\\Target\\Executables\\",
-    '.py': "C:\\Users\\{}\\Desktop\\Target\\Python-Files\\",
+    'others': join(target, "Others"),
+    '.mp3': join(usr_dir, "Music"),
+    '.mp4': join(usr_dir, "Videos") if name == "nt" else "Movies",
+    '.jpg': join(usr_dir, "Pictures"),
+    '.png': join(usr_dir, "Pictures"),
+    '.txt': join(target, "TextFiles"),
+    '.zip': join(target, "CompressedFiles"),
+    '.rar': join(target, "CompressedFiles"),
+    '.exe': join(target, "Executables"),
+    '.msi': join(target, "Executables"),
+    '.py': join(target, "PythonFiles")
 }

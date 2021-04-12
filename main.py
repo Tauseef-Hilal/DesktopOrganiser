@@ -8,10 +8,10 @@
 import time
 
 from events import event_handler, observer
-import extensions
+import log
 
 if __name__ == '__main__':
-    observer.schedule(event_handler, extensions.target, recursive=True)
+    observer.schedule(event_handler, log.desktop, recursive=True)
     observer.start()
 
     try:

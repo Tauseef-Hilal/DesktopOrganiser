@@ -8,7 +8,7 @@ __Automatically cleans your *`desktop`* by moving the files to a folder *`Target
 
 
 ## `--SYSTEM Requirements--`
-* **OS**: Windows
+* **OS**: Windows or MacOS
 * **RAM**: 10MB
 * ***Python and other dependencies should be installed!***
 
@@ -33,6 +33,6 @@ to your **startup** folder.
 
 
 ## `--NOTE--`
-* The files with extension **.mp3** are moved to *`C:\Users\<user_name>\Music`*
-* The files with extension **.mp4** are moved to *`C:\Users\<user_name>\Videos`*
-* The files with extension **.jpg** and **.png** are moved to *`C:\Users\<user_name>\Pictures`*
+* The files with extension **.mp3** are moved to *`\Users\<user_name>\Music`*
+* The files with extension **.mp4** are moved to *`\Users\<user_name>\ + Videos on Windows and Movies on Mac`*
+* The files with extension **.jpg** and **.png** are moved to *`\Users\<user_name>\Pictures`*
