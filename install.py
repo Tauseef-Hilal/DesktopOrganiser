@@ -1,13 +1,20 @@
-from os import system
+import os, sys, time
 
 try:
     with open('Requirements.txt') as _file:
-        print("Installing...")
-        print(_file.read())
-        system('python -m pip install -r Requirements.txt')
+        deps = _file.readlines()
+
+        for dep in deps:
+            print(f"Installing {dep[:-1]}")
+            if os.name == "nt":
+                os.system(f"py -m pip install {dep[:-1]} -q")
+            else:
+                os.system(f"pip3 install {dep[:-1]} -q")
+                
 except FileNotFoundError:
-    print("Installing...")
-    system('python -m pip install watchdog==2.0.2')
-finally:
+    print("[ERROR] Requirements.txt not found")
+    sys.exit(time.sleep(1))
+
+else:
     print("Installation Successful!")
-    input("Press a key to exit...")
+    sys.exit(time.sleep(1))
