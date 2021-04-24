@@ -5,8 +5,8 @@ import time
 try:
     from watchdog.observers import Observer
     from watchdog.events import FileSystemEventHandler
-    from extensions import destinations
-    import log
+    from organiser.extensions import destinations
+    from organiser import log
 except ModuleNotFoundError:
     print("[Error] The program has unmet dependencies:")
     print("Depends on:")

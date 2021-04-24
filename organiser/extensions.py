@@ -1,6 +1,6 @@
 from os.path import join
 from os import name
-from log import usr_dir, target
+from organiser.log import usr_dir, target
 
 destinations = {
     'others': join(target, "Others"),

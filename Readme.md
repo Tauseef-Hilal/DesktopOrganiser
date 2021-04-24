@@ -16,16 +16,12 @@ __Automatically cleans your *`desktop`* by moving the files to a folder *`Target
 ## `--Installation--`
 * Download the repository.
 * Run the **`install.py`** to install dependencies.
-  **OR**
-* Run the below command in terminal:<br><br> 
-> `
-python -m pip install -r Requirements.txt
-`
 
 
 ## `--Use--`
-* If you want to run the script in background run ***run_in_background.pyw***
-* To autorun the script on startup copy a shortcut of ***run_in_background.pyw*** file
+* Simply start run.py
+* If you want to run the script in background run ***background.pyw***
+* To autorun the script on startup copy a shortcut of ***background.pyw*** file
 to your **startup** folder.
 
 ## `--Depends On--`

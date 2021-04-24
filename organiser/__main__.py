@@ -7,10 +7,13 @@
 
 import time
 
-from events import event_handler, observer
-import log
+from organiser.events import event_handler, observer
+from organiser import log
 
-if __name__ == '__main__':
+
+def main():
+    """Start of the program"""
+
     observer.schedule(event_handler, log.desktop, recursive=True)
     observer.start()
 
@@ -21,3 +24,7 @@ if __name__ == '__main__':
         observer.stop()
 
     observer.join()
+
+
+if __name__ == '__main__':
+    main()
