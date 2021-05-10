@@ -20,7 +20,7 @@ except ModuleNotFoundError:
     except FileNotFoundError:
         print("[Error] Requirements.txt not found")
         print("Please run install.py first")
-    finally: 
+    finally:
         time.sleep(2)
         exit()
 
@@ -38,7 +38,7 @@ class My_Handler(FileSystemEventHandler):
                 others_dir = destinations['others']
 
                 if file_ext not in destinations.keys():
-                    new_dir =  file_ext[1:].title() + "-Files"
+                    new_dir = file_ext[1:].title() + "-Files"
                     destinations[file_ext] = join(others_dir, new_dir)
 
                 folder_destination = destinations[file_ext]
@@ -48,10 +48,10 @@ class My_Handler(FileSystemEventHandler):
                     while isfile(join(folder_destination, _file)):
                         i += 1
                         _file = splitext(path)[0] \
-                                + '-' + str(i) + \
-                                splitext(path)[1]
+                            + '-' + str(i) + \
+                            splitext(path)[1]
                         _file = basename(_file)
-                    
+
                     new_path = join(folder_destination, _file)
 
                     rename(path, new_path)
