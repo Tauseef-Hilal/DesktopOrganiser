@@ -1,4 +1,5 @@
 import os
+import getpass
 import logging
 from logging.handlers import RotatingFileHandler
 from datetime import date
@@ -7,7 +8,7 @@ usr_dir = os.path.join(os.getcwd().split(os.getlogin())[0], os.getlogin())
 desktop = os.path.join(usr_dir, "Desktop")
 target = os.path.join(desktop, "Target")
 log_folder = os.path.join(target, "Log")
-
+print(usr_dir)
 if not os.path.isdir(target):
     os.mkdir(target)
 if not os.path.isdir(log_folder):
