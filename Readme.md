@@ -23,5 +23,9 @@ Automatically cleans your *`desktop`* by moving the files to a folder *`Target`*
 
 ## NOTE
 * The files with extension **.mp3** are moved to *`\Users\<user_name>\Music`*
-* The files with extension **.mp4** are moved to *`\Users\<user_name>\ + `Videos` on Windows and `Movies` on Mac`*
+* The files with extension **.mp4** are moved to *`\Users\<user_name>\` + `Videos` on Windows and `Movies` on Mac*
 * The files with extension **.jpg** and **.png** are moved to *`\Users\<user_name>\Pictures`*
+
+## Inspiration
+[Kalle Hallden](https://github.com/KalleHallden)
+
